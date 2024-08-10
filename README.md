@@ -60,7 +60,9 @@ public IResult<int> somFunc(int x)
 	}
 }
 ```
+
 <br>
+
 ## Handling Returned Results
 
 
