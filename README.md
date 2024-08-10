@@ -66,7 +66,7 @@ public IResult<int> somFunc(int x)
 ## Handling Returned Results
 
 
-### The convensional usage pattern is:
+### The conventional usage pattern is:
 
  ```
 IResult<int> result = someFunc(x);
