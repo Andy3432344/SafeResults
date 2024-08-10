@@ -82,7 +82,7 @@ else
 }
 ```
 
-### However, having to check and cast the result every time can be combersome...<br>  
+### However, having to check and cast the result every time can be cumbersome...<br>  
 
 ## Using `OptionResult<T>` and the `option` method
 
