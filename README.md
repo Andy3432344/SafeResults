@@ -60,9 +60,9 @@ public IResult<int> somFunc(int x)
 	}
 }
 ```
-
-## Handling Returned Results
 <br>
+## Handling Returned Results
+
 
 ### The typical usage pattern is:
 
