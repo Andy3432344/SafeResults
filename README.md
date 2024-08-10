@@ -76,9 +76,10 @@ if(result is IOK<int> r)
 	int someInt = r.Value;
 	//use someInt for something...
 }
-else
+else if(result is IFail err)
 {
 	//handle failure
+	log.Error(err.Message);
 }
 ```
 
