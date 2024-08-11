@@ -10,6 +10,12 @@ namespace SafeResults;
 public readonly struct Key : IEquatable<Key>
 {
     private readonly IPrimitive key;
+    public IPrimitive Value => key;
+
+    public Key()
+    {
+        key = UndefinedValue.Instance;
+    }
 
     private Key(object key)
     {
@@ -29,6 +35,7 @@ public readonly struct Key : IEquatable<Key>
 
     public bool IsValid() => key is not UndefinedValue;
 
+    public static Key DefaultInvalid => new();
 
     public static explicit operator Key(string key)
     {
@@ -61,6 +68,9 @@ public readonly struct Key : IEquatable<Key>
 
     public override int GetHashCode()
     {
+        if (key == null)
+            return 0;
+
         return key.GetHashCode();
     }
 }

@@ -15,30 +15,30 @@ public struct IntegerNumber : IPrimitive, IEquatable<IntegerNumber>
     public IntegerNumber(sbyte value) { this.svalue = (long)value; }
     public IntegerNumber(short value) { this.svalue = (long)value; }
     public IntegerNumber(long value) { this.svalue = (long)value; }
-    public IntegerNumber(ushort value) { this.uvalue = value;signed = true; }
+    public IntegerNumber(ushort value) { this.uvalue = value; signed = true; }
     public IntegerNumber(uint value) { this.uvalue = value; signed = true; }
     public IntegerNumber(ulong value) { this.uvalue = value; signed = true; }
 
     public string ValueString => signed ? svalue.ToString() : uvalue.ToString();
-    public bool IsNumeric => true;
+    public readonly bool IsNumeric => true;
 
-    public bool IsInteger => true;
+    public readonly bool IsInteger => true;
 
-    public bool IsBool => false;
+    public readonly bool IsBool => false;
 
-    public bool IsString => false;
+    public readonly bool IsString => false;
 
-    public bool IsDate => false;
+    public readonly bool IsDate => false;
 
-    public bool IsTime => false;
-    public ulong UnsignedValue => signed ? (ulong)svalue : uvalue;
-    public long SignedValue => signed ? (long)uvalue : svalue;
+    public readonly bool IsTime => false;
+    public readonly ulong UnsignedValue => signed ? (ulong)svalue : uvalue;
+    public readonly long SignedValue => signed ? (long)uvalue : svalue;
 
 
     public bool Equals(IntegerNumber other)
     {
         return other.signed ?
-            other.svalue.Equals(svalue):
+            other.svalue.Equals(svalue) :
             other.uvalue.Equals(uvalue);
     }
 
@@ -48,7 +48,7 @@ public struct IntegerNumber : IPrimitive, IEquatable<IntegerNumber>
             return false;
 
         if (other is IntegerNumber i)
-            return signed ? i.svalue == svalue : i.uvalue==uvalue;
+            return signed ? i.svalue == svalue : i.uvalue == uvalue;
 
         if (other is DecimalNumber dec && dec.Value % 2 == 0)
             return (ulong)dec.Value == uvalue;

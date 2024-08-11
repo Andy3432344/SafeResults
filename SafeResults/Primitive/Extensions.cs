@@ -4,7 +4,7 @@ namespace SafeResults.Primitive;
 
 public static class Extensions
 {
-    internal static bool GetAnonymousPrimitive(this object? value,[NotNullWhen(true)] out IPrimitive? primitive)
+    public static bool GetAnonymousPrimitive(this object? value,[NotNullWhen(true)] out IPrimitive? primitive)
     {
         primitive = null;
         if (value == null)

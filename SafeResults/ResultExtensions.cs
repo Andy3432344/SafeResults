@@ -10,10 +10,8 @@ public static class ResultExtensions
     public static IResult<T> okBut<T>(T Value, string msg) => new OkBut<T>(Value, msg);
     public static IFail error(string msg) => new Error(msg);
     public static IFail<T> error<T>(string msg) => new Error<T>(msg);
-    public static OptionResult<T> option<T>(T defaultValue) => new OptionResult<T>(defaultValue)
-        
-        
-        ;
+    public static OptionResult<T> option<T>(T defaultValue) => new OptionResult<T>(defaultValue);
+
     private record Ok : IOk;
     private record OkBut(string Message) : IOkBut;
     private record Error(string Message) : IFail;
